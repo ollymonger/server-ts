@@ -8,21 +8,22 @@ const App: React.FunctionComponent = props => {
     useEffect(() => {
         const fetchData = async () => {
             let result = await fetch('http://localhost:8080/posts/');
-            let data = await result.json()
+            let data = await result.json();
             console.log(data);
             setPosts(data);
         }
         fetchData();
-        console.log(posts);
     }, []);
+
     if (posts === null) {
-        return <p>Loading....</p>
+        return <p>The blog posts are loading.....</p>
+        
     }
     return (
         <div>
             <p>all posts</p>
             {posts.map((post, id: number) => (
-                <div key={post.id}>
+                <div key={id}>
                     <h2>{post.title}</h2>
                     <p>{post.text}</p>
                 </div>

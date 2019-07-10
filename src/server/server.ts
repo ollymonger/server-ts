@@ -40,12 +40,23 @@ const posts: BlogPostModel[] = [
         id: 4,
         title: "POST 4 ",
         text: "thaihisahdishaid asi diasd iashdiash diashdihaid haidh aisd haisdhias hdias hdiashdihasidh asid isadhia shdiashdi ahsidha isdh "
+    },    
+    {
+        id: 5,
+        title: "POST 4 ",
+        text: "thaihisahdishaid asi diasd iashdiash diashdihaid haidh aisd haisdhias hdias hdiashdihasidh asid isadhia shdiashdi ahsidha isdh "
+    },    
+    {
+        id: 6,
+        title: "POST 4 ",
+        text: "thaihisahdishaid asi diasd iashdiash diashdihaid haidh aisd haisdhias hdias hdiashdihasidh asid isadhia shdiashdi ahsidha isdh "
     }
 ];
 
 app.get('/posts/', (req, res) => {
 
     const allPosts = posts;
+
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     console.log(posts)
