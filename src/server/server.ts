@@ -1,12 +1,14 @@
 import express from 'express';
+import fs from 'fs'
 
 const app = express();
-const port = 3000;
+const port = 8080;
+
 app.get('/', (req, res) => {
     res.send('/ has been accessed');
+    res.setHeader('Access-Control-Allow-Origin', '*');
 });
-
-interface BlogPostModel {
+export interface BlogPostModel {
     id: number,
     title: string,
     text: string
@@ -33,11 +35,18 @@ const posts: BlogPostModel[] = [
         id: 3,
         title: "POST 3 ",
         text: "thaihisahdishaid asi diasd iashdiash diashdihaid haidh aisd haisdhias hdias hdiashdihasidh asid isadhia shdiashdi ahsidha isdh "
+    },    
+    {
+        id: 4,
+        title: "POST 4 ",
+        text: "thaihisahdishaid asi diasd iashdiash diashdihaid haidh aisd haisdhias hdias hdiashdihasidh asid isadhia shdiashdi ahsidha isdh "
     }
 ];
 
 app.get('/posts/', (req, res) => {
+
     const allPosts = posts;
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     console.log(posts)
 
@@ -48,6 +57,7 @@ app.get('/posts/:id', (req, res) => {
     const parsedId = parseInt(req.params.id);
     const matchingPost = posts.find(post => post.id === parsedId);
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
     if (matchingPost === undefined) {
         res.sendStatus(404);
         return;
